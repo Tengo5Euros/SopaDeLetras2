@@ -8,7 +8,7 @@ public class Main {
 
         int n1 = Integer.parseInt(temporal);
         int palabramaslarga=0;
-//nada
+//actualizado
         int temporal2 = Integer.parseInt(temporal), temporal3;
         String[] palabra = new String[temporal2];
         Scanner input = new Scanner(System.in);
@@ -33,7 +33,7 @@ public class Main {
 
 
 
-        //sopa creada con Letra metida
+        //sopa creada con Letra metida.
         for (int i=0; i< sopa.length; i++){
             System.out.print("\n");
             for (int j=0; j< sopa[i].length; j++){
