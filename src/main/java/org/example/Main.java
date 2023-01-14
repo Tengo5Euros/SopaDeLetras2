@@ -45,7 +45,7 @@ public class Main {
             }
 
         }
-//creamos una posición aleatoria para cada palabra
+            //creamos una posición aleatoria para cada palabra
         for (int j = 0; j < palabras.length; j++) {
             //ponemos las variables donde va a empezar a escribir la sopa de letras
             iniciox = (int) (Math.random() * p);
@@ -54,7 +54,8 @@ public class Main {
             //variable para ver si lo ponemos en vertical u horizontal
             VERToHOR = (float) (Math.random() * 1);
             DiagonalArribaOAbajo = (float) (Math.random() * 2);
-            System.out.println("Vertical u Horizontal"+ VERToHOR+ "DIAGONAL" +DiagonalArribaOAbajo);
+            //System.out.println("Vertical u Horizontal" + VERToHOR + "DIAGONAL" + DiagonalArribaOAbajo);
+
             //calculamos el tamaño de la palabra para ver si cabe en la sopa
             finy = inicioy + palabras[j].length();
             finx = iniciox + palabras[j].length();
@@ -98,21 +99,21 @@ public class Main {
 
                     }
                 }
-            }else {
+            } else {
                 j--;
             }
         }
 
 //printeo la sopa de letras
-                for (int i = 0; i < sopa.length; i++) {
-                    System.out.print("\n");
-                    for (int j = 0; j < sopa[i].length; j++) {
-                        System.out.print(sopa[i][j]);
-
-                    }
-
-                }
-
+        for (int i = 0; i < sopa.length; i++) {
+            System.out.print("\n");
+            for (int j = 0; j < sopa[i].length; j++) {
+                System.out.print(sopa[i][j]);
 
             }
+
         }
+
+
+    }
+}
