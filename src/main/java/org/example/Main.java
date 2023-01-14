@@ -2,8 +2,6 @@
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         String temporal = args[0];
@@ -36,7 +34,7 @@ public class Main {
         int iniciox;//= (int) (Math.random() * p);
         int inicioy;//= (int) (Math.random() * p);
         int finy, finx;
-        float VERToHOR;
+        float VERToHOR, DiagonalArribaOAbajo;
 
         for (int i = 0; i < sopa.length; i++) {
             for (int j = 0; j < sopa[i].length; j++) {
@@ -52,43 +50,69 @@ public class Main {
             //ponemos las variables donde va a empezar a escribir la sopa de letras
             iniciox = (int) (Math.random() * p);
             inicioy = (int) (Math.random() * p);
+
             //variable para ver si lo ponemos en vertical u horizontal
             VERToHOR = (float) (Math.random() * 1);
+            DiagonalArribaOAbajo = (float) (Math.random() * 2);
+            System.out.println("Vertical u Horizontal"+ VERToHOR+ "DIAGONAL" +DiagonalArribaOAbajo);
             //calculamos el tamaño de la palabra para ver si cabe en la sopa
             finy = inicioy + palabras[j].length();
             finx = iniciox + palabras[j].length();
             letras = palabras[j].toCharArray();
-            //ponemos los limites para que quepa en la sopa de letras de forma horizontal
-            if (finy < sopa.length && VERToHOR < 0.5f) {
+
+            //ponemos los límites para que quepa en la sopa de letras de forma horizontal
+            if (finy < sopa.length && VERToHOR < 0.33f) {
                 for (int i = 0; i < letras.length; i++) {
                     sopa[iniciox][inicioy] = letras[i];
                     inicioy++;
                 }
-                //ponemos los limites para que quepa en la sopa de letras de forma vertical
-            } else if (finx < sopa.length && VERToHOR > 0.5f){
-                    for (int i = 0; i < letras.length; i++) {
+
+                //ponemos los límites para que quepa en la sopa de letras de forma vertical
+            } else if (finx < sopa.length && VERToHOR > 0.33f && VERToHOR < 0.66f) {
+                for (int i = 0; i < letras.length; i++) {
+                    sopa[iniciox][inicioy] = letras[i];
+                    iniciox++;
+                }
+                //ponemos los límites para que quepa en la sopa de letras de forma diagonal
+                //No esta terminada, tiene fallos
+            } else if (finy < sopa.length && finx < sopa.length && VERToHOR > 0.66f && VERToHOR < 1) {
+                for (int i = 0; i < letras.length; i++) {
+                    if (DiagonalArribaOAbajo < 0.5f) {
                         sopa[iniciox][inicioy] = letras[i];
                         iniciox++;
+                        inicioy++;
+                    } else if (DiagonalArribaOAbajo > 0.5f && DiagonalArribaOAbajo < 1) {
+                        sopa[iniciox][inicioy] = letras[i];
+                        iniciox++;
+                        inicioy--;
+                    } else if (DiagonalArribaOAbajo > 1 && DiagonalArribaOAbajo < 1.5f) {
+                        sopa[iniciox][inicioy] = letras[i];
+                        iniciox--;
+                        inicioy--;
+
+                    } else if (DiagonalArribaOAbajo > 1.5f && DiagonalArribaOAbajo < 2) {
+                        sopa[iniciox][inicioy] = letras[i];
+                        iniciox--;
+                        inicioy--;
+
+
                     }
-            }else{
-               j--;
                 }
+            }else {
+                j--;
             }
-
-
-        //ponemos en la sopa las palabras
-
-
-//printeo la sopa de letras
-        for (int i = 0; i < sopa.length; i++) {
-            System.out.print("\n");
-            for (int j = 0; j < sopa[i].length; j++) {
-                System.out.print(sopa[i][j]);
-
-            }
-
         }
 
+//printeo la sopa de letras
+                for (int i = 0; i < sopa.length; i++) {
+                    System.out.print("\n");
+                    for (int j = 0; j < sopa[i].length; j++) {
+                        System.out.print(sopa[i][j]);
 
-    }
-}
+                    }
+
+                }
+
+
+            }
+        }
