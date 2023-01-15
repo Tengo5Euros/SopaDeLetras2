@@ -1,5 +1,7 @@
 
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -45,7 +47,7 @@ public class Main {
             }
 
         }
-            //creamos una posición aleatoria para cada palabra
+        //creamos una posición aleatoria para cada palabra
         for (int j = 0; j < palabras.length; j++) {
             //ponemos las variables donde va a empezar a escribir la sopa de letras
             iniciox = (int) (Math.random() * p);
@@ -112,6 +114,13 @@ public class Main {
 
             }
 
+        }
+        System.out.println("\n");
+        int n = 1;
+        Arrays.sort(palabras);
+        for (int i = 0; i < palabras.length; i++) {
+            System.out.println("Palabras " + n + " " + palabras[i]);
+            n++;
         }
 
 
